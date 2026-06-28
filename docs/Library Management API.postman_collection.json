@@ -1,0 +1,582 @@
+{
+  "info": {
+    "_postman_id": "b6958060-b4e6-429d-84fc-777f7699fb01",
+    "name": "Library Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "memberId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "transactionId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login as Admin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (res.success && res.data) {",
+                  "    pm.collectionVariables.set('token', res.data.accessToken);",
+                  "    console.log('Logged in as:', res.data.role);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"admin\",\n  \"password\": \"Admin@123!\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Login as Librarian",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (res.success && res.data) {",
+                  "    pm.collectionVariables.set('token', res.data.accessToken);",
+                  "    console.log('Logged in as:', res.data.role);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"librarian\",\n  \"password\": \"Librarian@123!\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Login as Staff",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (res.success && res.data) {",
+                  "    pm.collectionVariables.set('token', res.data.accessToken);",
+                  "    console.log('Logged in as:', res.data.role);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"staff\",\n  \"password\": \"Staff@123!\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Get Current User (me)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "me"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"]
+            }
+          }
+        },
+        {
+          "name": "Search Books by Title/Author",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books?search=clean",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"],
+              "query": [{ "key": "search", "value": "clean" }]
+            }
+          }
+        },
+        {
+          "name": "Filter Books by Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books?status=Available",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"],
+              "query": [{ "key": "status", "value": "Available" }]
+            }
+          }
+        },
+        {
+          "name": "Filter Books by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books?categoryId=30000000-0000-0000-0000-000000000007",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"],
+              "query": [{ "key": "categoryId", "value": "30000000-0000-0000-0000-000000000007" }]
+            }
+          }
+        },
+        {
+          "name": "Get Book by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books/50000000-0000-0000-0000-000000000001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books", "50000000-0000-0000-0000-000000000001"]
+            }
+          }
+        },
+        {
+          "name": "Create Book (Admin/Librarian)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isbn\": \"978-0-99-999999-1\",\n  \"title\": \"New Book Title\",\n  \"description\": \"A great new book\",\n  \"publishedDate\": \"2024-01-01\",\n  \"totalCopies\": 5,\n  \"publisherId\": \"20000000-0000-0000-0000-000000000002\",\n  \"languageId\": \"10000000-0000-0000-0000-000000000001\",\n  \"categoryId\": \"30000000-0000-0000-0000-000000000007\",\n  \"pageCount\": 350,\n  \"authors\": [\n    {\n      \"authorId\": \"40000000-0000-0000-0000-000000000001\",\n      \"isPrimaryAuthor\": true\n    }\n  ]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"]
+            }
+          }
+        },
+        {
+          "name": "Update Book (Admin/Librarian)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isbn\": \"9780132350884\",\n  \"title\": \"Clean Code - Updated Edition\",\n  \"description\": \"Updated description\",\n  \"publishedDate\": \"2008-08-01\",\n  \"totalCopies\": 10,\n  \"publisherId\": \"20000000-0000-0000-0000-000000000005\",\n  \"languageId\": \"10000000-0000-0000-0000-000000000001\",\n  \"categoryId\": \"30000000-0000-0000-0000-000000000007\",\n  \"pageCount\": 431,\n  \"authors\": [\n    {\n      \"authorId\": \"40000000-0000-0000-0000-000000000001\",\n      \"isPrimaryAuthor\": true\n    }\n  ]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/books/50000000-0000-0000-0000-000000000001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books", "50000000-0000-0000-0000-000000000001"]
+            }
+          }
+        },
+        {
+          "name": "Delete Book (Admin only)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books/50000000-0000-0000-0000-000000000005",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books", "50000000-0000-0000-0000-000000000005"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Get All Members",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (res.success && res.data && res.data.length > 0) {",
+                  "    pm.collectionVariables.set('memberId', res.data[0].id);",
+                  "    console.log('Member ID saved:', res.data[0].id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/members",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "members"]
+            }
+          }
+        },
+        {
+          "name": "Get Member by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/members/{{memberId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "members", "{{memberId}}"]
+            }
+          }
+        },
+        {
+          "name": "Create Member (Admin/Librarian)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"phoneNumber\": \"0501234567\",\n  \"address\": \"123 Main Street, Cairo\",\n  \"membershipDurationMonths\": 12,\n  \"maxBorrowLimit\": 5\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/members",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "members"]
+            }
+          }
+        },
+        {
+          "name": "Update Member (Admin/Librarian)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"email\": \"john.smith@example.com\",\n  \"phoneNumber\": \"0509876543\",\n  \"address\": \"456 New Street, Cairo\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/members/{{memberId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "members", "{{memberId}}"]
+            }
+          }
+        },
+        {
+          "name": "Suspend Member (Admin/Librarian)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/members/{{memberId}}/suspend",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "members", "{{memberId}}", "suspend"]
+            }
+          }
+        },
+        {
+          "name": "Renew Membership (Admin/Librarian)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"months\": 12\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/members/{{memberId}}/renew",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "members", "{{memberId}}", "renew"]
+            }
+          }
+        },
+        {
+          "name": "Delete Member (Admin only)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/members/{{memberId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "members", "{{memberId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users (Admin only)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID (Admin only)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/60000000-0000-0000-0000-000000000001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "60000000-0000-0000-0000-000000000001"]
+            }
+          }
+        },
+        {
+          "name": "Create User (Admin only)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"newlibrarian\",\n  \"email\": \"newlibrarian@library.com\",\n  \"password\": \"Librarian@2024!\",\n  \"firstName\": \"Sara\",\n  \"lastName\": \"Ahmed\",\n  \"roleId\": \"00000000-0000-0000-0000-000000000002\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Update User (Admin only)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Sara\",\n  \"lastName\": \"Mohammed\",\n  \"email\": \"sara.m@library.com\",\n  \"roleId\": \"00000000-0000-0000-0000-000000000002\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/60000000-0000-0000-0000-000000000001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "60000000-0000-0000-0000-000000000001"]
+            }
+          }
+        },
+        {
+          "name": "Deactivate User (Admin only)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/60000000-0000-0000-0000-000000000002/deactivate",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "60000000-0000-0000-0000-000000000002", "deactivate"]
+            }
+          }
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"Admin@123!\",\n  \"newPassword\": \"Admin@456!\",\n  \"confirmPassword\": \"Admin@456!\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/60000000-0000-0000-0000-000000000001/password",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "60000000-0000-0000-0000-000000000001", "password"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Borrowing",
+      "item": [
+        {
+          "name": "Borrow Book",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (res.success && res.data) {",
+                  "    pm.collectionVariables.set('transactionId', res.data.id);",
+                  "    console.log('Transaction ID saved:', res.data.id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": \"50000000-0000-0000-0000-000000000001\",\n  \"memberId\": \"{{memberId}}\",\n  \"borrowDurationDays\": 14,\n  \"notes\": \"First borrowing\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/borrowing/borrow",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "borrowing", "borrow"]
+            }
+          }
+        },
+        {
+          "name": "Return Book",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Returned in good condition\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/borrowing/{{transactionId}}/return",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "borrowing", "{{transactionId}}", "return"]
+            }
+          }
+        },
+        {
+          "name": "Get Active Borrowings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/borrowing/active",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "borrowing", "active"]
+            }
+          }
+        },
+        {
+          "name": "Get Overdue Borrowings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/borrowing/overdue",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "borrowing", "overdue"]
+            }
+          }
+        },
+        {
+          "name": "Get Borrowings by Member",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/borrowing/member/{{memberId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "borrowing", "member", "{{memberId}}"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": { "type": "text/javascript", "exec": [""] }
+    },
+    {
+      "listen": "test",
+      "script": { "type": "text/javascript", "exec": [""] }
+    }
+  ]
+}
