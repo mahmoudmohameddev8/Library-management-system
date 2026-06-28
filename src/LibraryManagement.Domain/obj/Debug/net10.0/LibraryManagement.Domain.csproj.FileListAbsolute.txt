@@ -1,0 +1,11 @@
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\bin\Debug\net10.0\LibraryManagement.Domain.deps.json
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\bin\Debug\net10.0\LibraryManagement.Domain.dll
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\bin\Debug\net10.0\LibraryManagement.Domain.pdb
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\obj\Debug\net10.0\LibraryManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\obj\Debug\net10.0\LibraryManagement.Domain.AssemblyInfoInputs.cache
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\obj\Debug\net10.0\LibraryManagement.Domain.AssemblyInfo.cs
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\obj\Debug\net10.0\LibraryManagement.Domain.csproj.CoreCompileInputs.cache
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\obj\Debug\net10.0\LibraryManagement.Domain.dll
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\obj\Debug\net10.0\refint\LibraryManagement.Domain.dll
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\obj\Debug\net10.0\LibraryManagement.Domain.pdb
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Domain\obj\Debug\net10.0\ref\LibraryManagement.Domain.dll

@@ -1,0 +1,15 @@
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\LibraryManagement.Application.csproj.AssemblyReference.cache
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\LibraryManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\LibraryManagement.Application.AssemblyInfoInputs.cache
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\LibraryManagement.Application.AssemblyInfo.cs
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\LibraryManagement.Application.csproj.CoreCompileInputs.cache
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\bin\Debug\net10.0\LibraryManagement.Application.deps.json
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\bin\Debug\net10.0\LibraryManagement.Application.dll
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\bin\Debug\net10.0\LibraryManagement.Application.pdb
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\bin\Debug\net10.0\LibraryManagement.Domain.dll
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\bin\Debug\net10.0\LibraryManagement.Domain.pdb
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\LibraryM.C4F4E017.Up2Date
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\LibraryManagement.Application.dll
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\refint\LibraryManagement.Application.dll
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\LibraryManagement.Application.pdb
+c:\Users\ma7mo\Desktop\code81 assessment\src\LibraryManagement.Application\obj\Debug\net10.0\ref\LibraryManagement.Application.dll

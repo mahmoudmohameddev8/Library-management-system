@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "SJxp3+Hl2zo=",
+  "success": true,
+  "projectFilePath": "c:\\Users\\ma7mo\\Desktop\\code81 assessment\\src\\LibraryManagement.Application\\LibraryManagement.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ma7mo\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\ma7mo\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
+    "C:\\Users\\ma7mo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
